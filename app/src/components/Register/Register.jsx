@@ -2,42 +2,49 @@ import { Formik, Form } from "formik";
 import { useHistory } from "react-router";
 import { FormField, ServerError } from "../FormField/FormField";
 
-function Login() {
+function Register() {
   const history = useHistory();
 
-  const login = () => {
-    console.log("Login");
+  const register = () => {
+    console.log("Register");
   };
+
   return (
     <div className="auth-form-container">
-      <h1>Log in</h1>
+      <h1>Register</h1>
       <Formik
-        onSubmit={login}
+        onSubmit={register}
         validateOnMount={true}
         initialValues=""
         validationSchema=""
       >
         {({ isValid, isSubmitting }) => (
           <Form>
+            <FormField label="Gym name" name="name" />
             <FormField label="Email" name="email" />
-            <FormField label="Password" name="password" />
+            <FormField label="Password" name="password" type="password" />
+            <FormField
+              label="Confirm Password"
+              name="verifyPassword"
+              type="password"
+            />
 
             <button
               className="auth-button"
               disabled={isSubmitting || !isValid}
               type="submit"
             >
-              Login
+              Register
             </button>
             <div className="auth-link-container">
-              Don't have an account?{" "}
+              Already registered?{" "}
               <span
                 className="auth-link"
                 onClick={() => {
-                  history.push("register");
+                  history.push("login");
                 }}
               >
-                Register
+                Login
               </span>
             </div>
           </Form>
@@ -48,4 +55,4 @@ function Login() {
   );
 }
 
-export default Login;
+export default Register;

@@ -1,6 +1,7 @@
 import { Formik, Form } from "formik";
 import { useHistory } from "react-router";
 import { FormField, ServerError } from "../FormField/FormField";
+import "../../styles/authForm.css";
 
 function Register() {
   const history = useHistory();

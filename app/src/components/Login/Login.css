@@ -1,0 +1,6 @@
+.auth-form-container {
+  width: 500px;
+  color: white;
+  display: flex;
+  flex-direction: column;
+}

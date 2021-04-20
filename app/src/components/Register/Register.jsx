@@ -10,7 +10,11 @@ function Register() {
   const history = useHistory();
   const [serverError, setServerError] = useState("");
 
-  const register = () => {};
+  const register = () => {
+    // fb.auth.createUserWithEmailAndPassword(email, password).then(() => {
+    //   fb.firestore.collection();
+    // });
+  };
 
   return (
     <div className="auth-form-container">

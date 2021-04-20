@@ -4,8 +4,12 @@ import "../../styles/FormField.css";
 export function FormField({ name, label, type = "text" }) {
   return (
     <label>
-      {label}
-      <Field className="form-field" type={type} name={name} />
+      <Field
+        className="form-field"
+        type={type}
+        name={name}
+        placeholder={label}
+      />
       <div className="error-container">
         <ErrorMessage className="error" component="div" name={name} />
       </div>

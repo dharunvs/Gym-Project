@@ -6,6 +6,7 @@
   --light: #c5c6c7;
   --bg: #0b0c10;
   --bg-2: #1f2833;
+  --transparent: rgba(0, 0, 0, 0);
 }
 
 * {
@@ -20,7 +21,4 @@ html {
   width: 100vw;
   min-height: 100vh;
   background-color: var(--bg);
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }

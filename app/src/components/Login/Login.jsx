@@ -2,6 +2,7 @@ import { Formik, Form } from "formik";
 import { useHistory } from "react-router";
 import { FormField, ServerError } from "../FormField/FormField";
 import "../../styles/authForm.css";
+import { validationSchema, defaultValues } from "./formikConfig";
 
 function Login() {
   const history = useHistory();
@@ -15,8 +16,8 @@ function Login() {
       <Formik
         onSubmit={login}
         validateOnMount={true}
-        initialValues=""
-        validationSchema=""
+        initialValues={defaultValues}
+        validationSchema={validationSchema}
       >
         {({ isValid, isSubmitting }) => (
           <Form>

@@ -7,7 +7,7 @@
   transform: translateY(-5%);
 }
 .auth-form-container > * > * {
-  margin-bottom: 10px;
+  margin-bottom: 20px;
 }
 .auth-form-container h1 {
   color: var(--fg);
@@ -25,4 +25,10 @@
   font-weight: lighter;
   letter-spacing: 2px;
   border-radius: 2px;
+}
+
+.auth-button:disabled {
+  cursor: not-allowed;
+  border: 1px solid var(--bg-2);
+  color: var(--bg-2);
 }

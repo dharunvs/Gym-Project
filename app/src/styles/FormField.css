@@ -15,13 +15,18 @@ label {
 }
 
 .form-field {
+  color: white;
   outline: none;
-  border: 1px solid var(--fg);
+  border: 1px solid var(--bg-2);
   background-color: var(--transparent);
   padding: 12px;
   border-radius: 2px;
 }
 
+.form-field::placeholder {
+  color: var(--light);
+}
+
 .form-field:focus {
-  border: 1px solid var(--fg-2);
+  border: 1px solid var(--fg);
 }

@@ -1,4 +1,6 @@
+import { useState } from "react";
 import { useHistory } from "react-router";
+import fb from "../../service/firebase";
 import { Formik, Form } from "formik";
 import { validationSchema, defaultValues } from "./formikConfig";
 import { FormField, ServerError } from "../FormField/FormField";
@@ -6,10 +8,9 @@ import "../../styles/authForm.css";
 
 function Register() {
   const history = useHistory();
+  const [serverError, setServerError] = useState("");
 
-  const register = () => {
-    console.log("Register");
-  };
+  const register = () => {};
 
   return (
     <div className="auth-form-container">
@@ -52,7 +53,7 @@ function Register() {
           </Form>
         )}
       </Formik>
-      <ServerError serverError={"serverError"} />
+      <ServerError serverError={serverError} />
     </div>
   );
 }

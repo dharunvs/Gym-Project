@@ -7,6 +7,7 @@
   --bg: #0b0c10;
   --bg-2: #1f2833;
   --transparent: rgba(0, 0, 0, 0);
+  --error: rgb(197, 0, 0);
 }
 
 * {

@@ -22,7 +22,7 @@ function Register() {
       >
         {({ isValid, isSubmitting }) => (
           <Form>
-            <FormField label="Gym name" name="name" />
+            <FormField label="Gym name" name="gymName" />
             <FormField label="Email" name="email" />
             <FormField label="Password" name="password" type="password" />
             <FormField

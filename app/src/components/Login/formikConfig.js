@@ -6,6 +6,6 @@ export const defaultValues = {
 };
 
 export const validationSchema = yup.object().shape({
-  email: yup.string().required("Required"),
+  email: yup.string().required("Required").email("Invalid email"),
   password: yup.string().required("Required"),
 });

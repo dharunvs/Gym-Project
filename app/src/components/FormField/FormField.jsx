@@ -20,7 +20,7 @@ export function FormField({ name, label, type = "text" }) {
 export function ServerError({ serverError }) {
   return (
     <div className="error-container">
-      <div className="error">{serverError}</div>
+      <div className="error">{""}</div>
     </div>
   );
 }

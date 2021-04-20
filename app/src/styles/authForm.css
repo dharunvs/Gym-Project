@@ -1,6 +1,11 @@
 .auth-form-container {
   width: 400px;
-  color: white;
+  color: var(--light);
   display: flex;
   flex-direction: column;
+  padding: 20px;
+}
+
+.auth-form-container h1 {
+  color: var(--fg);
 }

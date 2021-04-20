@@ -1,5 +1,13 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap");
 
+:root {
+  --fg: #66fcf1;
+  --fg-2: #45a29e;
+  --light: #c5c6c7;
+  --bg: #0b0c10;
+  --bg-2: #1f2833;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -11,5 +19,8 @@ body,
 html {
   width: 100vw;
   min-height: 100vh;
-  background-color: #111;
+  background-color: var(--bg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }

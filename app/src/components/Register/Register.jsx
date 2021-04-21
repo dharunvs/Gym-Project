@@ -11,6 +11,8 @@ function Register() {
   const [serverError, setServerError] = useState("");
   const [reg, setReg] = useState(false);
 
+  console.log(process.env.REACT_APP_API_KEY);
+
   function register({ email, gymName, password }, { setSubmitting }) {
     fb.auth
       .createUserWithEmailAndPassword(email, password)

@@ -11,13 +11,22 @@ function Login() {
   const [serverError, setServerError] = useState("");
 
   function login({ email, password }, { setSubmitting }) {
-    console.log(email + ":", password);
-    console.log(process.env.REACT_APP_APP_ID);
-    console.log(process.env.REACT_APP_AUTH_DOMAIN);
-    console.log(process.env.REACT_APP_PROJECT_ID);
-    console.log(process.env.REACT_APP_STORAGE_BUCKET);
-    console.log(process.env.REACT_APP_MESSAGING_SENDER_ID);
-    console.log(process.env.REACT_APP_APP_ID);
+    fb.auth
+      .signInWithEmailAndPassword(email, password)
+      .then((res) => {
+        if (!res.user) {
+          setServerError("Trouble logging in.");
+        }
+      })
+      .catch((err) => {
+        if (err.code === "auth/wrong-password") {
+          setServerError(err.message);
+        } else if (err.code === "auth/user-not-found") {
+          setServerError("Email not registered");
+        } else {
+          serverError("Something went wrong");
+        }
+      });
   }
   return (
     <div className="auth-form-container">

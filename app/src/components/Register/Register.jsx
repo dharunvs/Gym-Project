@@ -34,7 +34,7 @@ function Register() {
           } else {
             setServerError("Trouble registering. Try again.");
           }
-        } else {
+        } else if (!err) {
           setReg(true);
         }
       })

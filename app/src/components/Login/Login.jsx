@@ -1,4 +1,6 @@
+import { useState } from "react";
 import { useHistory } from "react-router";
+import fb from "../../service/firebase";
 import { Formik, Form } from "formik";
 import { validationSchema, defaultValues } from "./formikConfig";
 import { FormField, ServerError } from "../FormField/FormField";
@@ -6,6 +8,7 @@ import "../../styles/authForm.css";
 
 function Login() {
   const history = useHistory();
+  const [serverError, setServerError] = useState("");
 
   const login = () => {
     console.log("Login");
@@ -45,7 +48,7 @@ function Login() {
           </Form>
         )}
       </Formik>
-      <ServerError serverError={"serverError"} />
+      <ServerError serverError={serverError} />
     </div>
   );
 }

@@ -10,11 +10,32 @@ function Register() {
   const history = useHistory();
   const [serverError, setServerError] = useState("");
 
-  const register = () => {
-    // fb.auth.createUserWithEmailAndPassword(email, password).then(() => {
-    //   fb.firestore.collection();
-    // });
-  };
+  function register({ email, gymName, password }, { setSubmitting }) {
+    fb.auth
+      .createUserWithEmailAndPassword(email, password)
+      .then((res) => {
+        if (res?.user?.uid) {
+          fb.firestore.collection("gyms").doc(res.user.uid).set({
+            email: email,
+            name: gymName,
+            password: password,
+          });
+        } else {
+          setServerError("Trouble registering. Try again.");
+        }
+      })
+      .catch((err) => {
+        console.log(err);
+        if (err.code === "auth/email-already-in-use") {
+          setServerError("Email already exists. Use another email.");
+        } else {
+          setServerError("Trouble registering. Try again.");
+        }
+      })
+      .finally(() => {
+        setSubmitting(false);
+      });
+  }
 
   return (
     <div className="auth-form-container">

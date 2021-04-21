@@ -13,8 +13,11 @@ function Login() {
   function login({ email, password }, { setSubmitting }) {
     console.log(email + ":", password);
     console.log(process.env.REACT_APP_APP_ID);
-    setSubmitting(false);
-    console.log(setSubmitting);
+    console.log(process.env.REACT_APP_AUTH_DOMAIN);
+    console.log(process.env.REACT_APP_PROJECT_ID);
+    console.log(process.env.REACT_APP_STORAGE_BUCKET);
+    console.log(process.env.REACT_APP_MESSAGING_SENDER_ID);
+    console.log(process.env.REACT_APP_APP_ID);
   }
   return (
     <div className="auth-form-container">

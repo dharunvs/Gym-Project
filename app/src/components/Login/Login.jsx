@@ -12,6 +12,7 @@ function Login() {
 
   function login({ email, password }, { setSubmitting }) {
     console.log(email + ":", password);
+    console.log(process.env.REACT_APP_API_KEY);
     setSubmitting(false);
     console.log(setSubmitting);
   }

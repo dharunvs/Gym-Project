@@ -9,6 +9,7 @@ import "../../styles/authForm.css";
 function Register() {
   const history = useHistory();
   const [serverError, setServerError] = useState("");
+  const [reg, setReg] = useState(false);
 
   function register({ email, gymName, password }, { setSubmitting }) {
     fb.auth
@@ -25,16 +26,23 @@ function Register() {
         }
       })
       .catch((err) => {
-        console.log(err);
-        if (err.code === "auth/email-already-in-use") {
-          setServerError("Email already exists. Use another email.");
+        if (err) {
+          if (err.code === "auth/email-already-in-use") {
+            setServerError("Email already exists. Use another email.");
+          } else {
+            setServerError("Trouble registering. Try again.");
+          }
         } else {
-          setServerError("Trouble registering. Try again.");
+          setReg(true);
         }
       })
       .finally(() => {
         setSubmitting(false);
       });
+
+    if (reg) {
+      history.push("login");
+    }
   }
 
   return (

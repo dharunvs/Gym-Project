@@ -21,6 +21,7 @@ label {
   padding: 12px;
   border-radius: 2px;
   font-weight: 100;
+  transition: border 200ms ease-in-out;
 }
 
 .form-field::placeholder {

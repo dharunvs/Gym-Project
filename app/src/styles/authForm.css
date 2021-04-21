@@ -25,6 +25,7 @@
   font-weight: lighter;
   letter-spacing: 2px;
   border-radius: 2px;
+  transition: color 200ms ease-in-out, background-color 200ms ease-in-out;
 }
 
 .auth-button:disabled {
@@ -33,8 +34,13 @@
   color: var(--bg-2);
 }
 
+.auth-button:enabled:hover {
+  background-color: var(--fg);
+  color: var(--bg);
+}
 .auth-link {
   padding-left: 5px;
+  transition: color 200ms ease-in-out;
 }
 
 .auth-link:hover {

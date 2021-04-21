@@ -10,9 +10,11 @@ function Login() {
   const history = useHistory();
   const [serverError, setServerError] = useState("");
 
-  const login = () => {
-    console.log("Login");
-  };
+  function login({ email, password }, { setSubmitting }) {
+    console.log(email + ":", password);
+    setSubmitting(false);
+    console.log(setSubmitting);
+  }
   return (
     <div className="auth-form-container">
       <h1>Log in</h1>

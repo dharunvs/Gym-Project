@@ -20,12 +20,15 @@ function Login() {
       })
       .catch((err) => {
         if (err.code === "auth/wrong-password") {
-          setServerError(err.message);
+          setServerError("Incorrect password");
         } else if (err.code === "auth/user-not-found") {
           setServerError("Email not registered");
         } else {
           serverError("Something went wrong");
         }
+      })
+      .finally(() => {
+        setSubmitting(false);
       });
   }
   return (

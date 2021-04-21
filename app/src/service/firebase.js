@@ -5,9 +5,9 @@ import "firebase/firestore";
 
 try {
   firebase.initializeApp({
-    apiKey: "AIzaSyAl45uf12EKoZElDTj77kUPzb07EIorvjo",
+    apiKey: process.env.REACT_APP_API_KEY,
     authDomain: "gym-service123.firebaseapp.com",
-    projectId: "gym-service123",
+    projectId: process.env.REACT_APP_PROJECT_ID,
     storageBucket: "gym-service123.appspot.com",
     messagingSenderId: "573840584596",
     appId: "1:573840584596:web:158debf58a4331b358a981",

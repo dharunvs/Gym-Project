@@ -9,18 +9,15 @@ import "../../styles/authForm.css";
 function Register() {
   const history = useHistory();
   const [serverError, setServerError] = useState("");
-  const [reg, setReg] = useState(false);
-
-  console.log(process.env.REACT_APP_API_KEY);
 
   function register({ email, gymName, password }, { setSubmitting }) {
     fb.auth
       .createUserWithEmailAndPassword(email, password)
       .then((res) => {
         if (res?.user?.uid) {
-          fb.firestore.collection("gyms").doc(res.user.uid).set({
+          fb.firestore.collection("gym").doc(res.user.uid).set({
             email: email,
-            name: gymName,
+            gymName: gymName,
             password: password,
           });
         } else {
@@ -28,23 +25,15 @@ function Register() {
         }
       })
       .catch((err) => {
-        if (err) {
-          if (err.code === "auth/email-already-in-use") {
-            setServerError("Email already exists. Use another email.");
-          } else {
-            setServerError("Trouble registering. Try again.");
-          }
-        } else if (!err) {
-          setReg(true);
+        if (err.code === "auth/email-already-in-use") {
+          setServerError("Email already exists. Use another email.");
+        } else {
+          setServerError("Trouble registering. Try again.");
         }
       })
       .finally(() => {
         setSubmitting(false);
       });
-
-    if (reg) {
-      history.push("login");
-    }
   }
 
   return (

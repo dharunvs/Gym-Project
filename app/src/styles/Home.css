@@ -1,0 +1,6 @@
+.home-container {
+  color: var(--light);
+  background-color: var(--bg-2);
+  width: 100%;
+  min-height: 100vh;
+}

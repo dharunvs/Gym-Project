@@ -1,5 +1,7 @@
+import "../../styles/Home.css";
+
 function Home() {
-  return <div className="auth-form-container">Home</div>;
+  return <div className="home-container">Home</div>;
 }
 
 export default Home;

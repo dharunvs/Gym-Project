@@ -7,10 +7,14 @@ export function currentUser(res) {
   const gymData = fb.firestore.collection("gym").doc(userId);
 
   gymData.get().then((doc) => {
-    userDoc.push(doc.data);
+    const docRef = doc.data();
+    for (const i of Object.entries(doc.data())) {
+      userDoc.push(i);
+    }
   });
 }
 
 export const userData = {
   data: userDoc,
+  //   name: userDoc.fin,
 };

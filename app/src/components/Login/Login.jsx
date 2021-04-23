@@ -4,6 +4,7 @@ import fb from "../../service/firebase";
 import { Formik, Form } from "formik";
 import { validationSchema, defaultValues } from "./formikConfig";
 import { FormField, ServerError } from "../FormField/FormField";
+import { currentUser } from "../../hooks/currentUser";
 import "../../styles/authForm.css";
 
 function Login() {
@@ -14,6 +15,7 @@ function Login() {
     fb.auth
       .signInWithEmailAndPassword(email, password)
       .then((res) => {
+        currentUser(res);
         if (!res.user) {
           setServerError("Trouble logging in.");
         }

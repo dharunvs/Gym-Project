@@ -17,12 +17,12 @@ function Home() {
 
   return (
     <div className="home-container">
-      Home
+      {window.localStorage.getItem("gymName")}
       {/* {fb.firestore.collection("gym").doc()} */}
       <button onClick={logout}>logout</button>
       <button
         onClick={() => {
-          console.log(userData.data);
+          console.log(window.localStorage.getItem("email"));
         }}
       >
         data

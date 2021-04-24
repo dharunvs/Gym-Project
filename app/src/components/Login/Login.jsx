@@ -45,7 +45,7 @@ function Login() {
         {({ isValid, isSubmitting }) => (
           <Form>
             <FormField label="Email" name="email" />
-            <FormField label="Password" name="password" />
+            <FormField label="Password" name="password" type="password" />
 
             <button
               className="auth-button"

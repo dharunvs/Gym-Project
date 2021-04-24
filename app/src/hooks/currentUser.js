@@ -8,8 +8,9 @@ export function currentUser(res) {
 
   gymData.get().then((doc) => {
     const docRef = doc.data();
-    for (const i of Object.entries(doc.data())) {
-      userDoc.push(i);
+    for (const i of Object.entries(docRef)) {
+      console.log(i);
+      localStorage.setItem(i[0], i[1]);
     }
   });
 }

@@ -8,8 +8,12 @@ function Home() {
 
   function logout() {
     indexedDB.deleteDatabase("firebaseLocalStorageDb");
+    localStorage.clear();
     history.push("login");
+    window.location.reload();
   }
+
+  function addMember() {}
 
   return (
     <div className="home-container">
@@ -23,6 +27,10 @@ function Home() {
       >
         data
       </button>
+      <div className="add-memeber">
+        <input type="text" />
+        <button onClick={addMember}>Add</button>
+      </div>
     </div>
   );
 }

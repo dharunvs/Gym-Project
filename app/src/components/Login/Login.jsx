@@ -31,7 +31,6 @@ function Login() {
       })
       .finally(() => {
         setSubmitting(false);
-        window.location.reload();
       });
   }
   return (
